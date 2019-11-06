@@ -5,7 +5,7 @@ import requests
 
 # def func(URL):
 URL = 'https://api.github.com/search/repositories?q=language:java&sort=stars&order=desc&per_page=100&page=2'
-headers = {"Authorization": "token 98c9175224beeb085297a47da8d490cc57641d99"}
+headers = {"Authorization": "token "}
 r = requests.get(URL, headers=headers)
 # print("Status code:", r.status_code)
 response_dict = r.json()
