@@ -1,6 +1,6 @@
 import requests
-import pygal
-from pygal.style import LightColorizedStyle as LCS, LightenStyle as LS
+# import pygal
+# from pygal.style import LightColorizedStyle as LCS, LightenStyle as LS
 
 
 # def func(URL):
