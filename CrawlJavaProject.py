@@ -4,24 +4,24 @@ import time
 
 github_url = dict()
 URL_List = []
-for i in range(1, 9):
-    URL = "https://api.github.com/search/repositories?q=language:java+created:2018-0%s-01..2018-0%s-01+stars:>20&per_page=100&sort=stars&order=desc" % (
-        i, i + 1)
-    URL_List.append(URL)
+# for i in range(1, 9):
+#     URL = "https://api.github.com/search/repositories?q=language:java+created:2018-0%s-01..2018-0%s-01+stars:>20&per_page=100&sort=stars&order=desc" % (
+#         i, i + 1)
+#     URL_List.append(URL)
 
-URL_9 = "https://api.github.com/search/repositories?q=language:java+created:2018-09-01..2018-10-01+stars:>20&per_page=100&sort=stars&order=desc"
-URL_10 = "https://api.github.com/search/repositories?q=language:java+created:2018-10-01..2018-11-01+stars:>20&per_page=100&sort=stars&order=desc"
-URL_11 = "https://api.github.com/search/repositories?q=language:java+created:2018-11-01..2018-12-01+stars:>20&per_page=100&sort=stars&order=desc"
-URL_12 = "https://api.github.com/search/repositories?q=language:java+created:2018-12-01..2018-12-31+stars:>20&per_page=100&sort=stars&order=desc"
+URL_9 = "https://api.github.com/search/repositories?q=language:java+created:2018-07-01..2018-07-31+stars:>20&per_page=100&sort=stars&order=desc"
+URL_10 = "https://api.github.com/search/repositories?q=language:java+created:2018-08-01..2018-08-31+stars:>20&per_page=100&sort=stars&order=desc"
+URL_11 = "https://api.github.com/search/repositories?q=language:java+created:2018-09-01..2018-09-30+stars:>20&per_page=100&sort=stars&order=desc"
+# URL_12 = "https://api.github.com/search/repositories?q=language:java+created:2018-12-01..2018-12-31+stars:>20&per_page=100&sort=stars&order=desc"
 URL_List.append(URL_9)
 URL_List.append(URL_10)
 URL_List.append(URL_11)
-URL_List.append(URL_12)
+# URL_List.append(URL_12)
 
 def clone(URL, stars):
     command = "git clone " + URL
     project_name = URL.split("/")[-1]
-    command += " E://javaProjectsFromGithub//" + project_name + "_" + str(stars)
+    command += " D://javaProjectsFromGithub//" + project_name + "_" + str(stars)
     os.system(command)
 
 def crawl(URL):
