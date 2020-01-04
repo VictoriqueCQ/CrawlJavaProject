@@ -3,12 +3,12 @@ import pyexcel
 
 result = []
 URL_List = []
-URL_9 = "https://api.github.com/search/repositories?q=language:java+created:2018-04-01..2018-04-30+stars:>20&per_page=100&sort=stars&order=desc"
-URL_10 = "https://api.github.com/search/repositories?q=language:java+created:2018-05-01..2018-05-31+stars:>20&per_page=100&sort=stars&order=desc"
-URL_11 = "https://api.github.com/search/repositories?q=language:java+created:2018-06-01..2018-06-30+stars:>20&per_page=100&sort=stars&order=desc"
+URL_9 = "https://api.github.com/search/repositories?q=language:java+created:2018-12-01..2018-12-31+stars:>20&per_page=100&sort=stars&order=desc"
+# URL_10 = "https://api.github.com/search/repositories?q=language:java+created:2018-08-01..2018-08-31+stars:>20&per_page=100&sort=stars&order=desc"
+# URL_11 = "https://api.github.com/search/repositories?q=language:java+created:2018-09-01..2018-09-30+stars:>20&per_page=100&sort=stars&order=desc"
 URL_List.append(URL_9)
-URL_List.append(URL_10)
-URL_List.append(URL_11)
+# URL_List.append(URL_10)
+# URL_List.append(URL_11)
 
 
 def crawl(URL):
@@ -24,10 +24,12 @@ def crawl(URL):
         repo_dicts = resp_dict['items']
         for repo_dict in repo_dicts:
             result_dict = dict()
+            repo_id = repo_dict['id']
             repo_name = repo_dict['name']
             repo_url = repo_dict['html_url']
             repo_star = repo_dict['stargazers_count']
             repo_create_time = repo_dict['created_at']
+            result_dict['id'] = repo_id
             result_dict['name'] = repo_name
             result_dict['url'] = repo_url
             result_dict['star'] = repo_star
@@ -42,4 +44,4 @@ def crawl(URL):
 
 for url in URL_List:
     crawl(url)
-    pyexcel.save_as(records=result, dest_file_name="project_url2.xlsx")
+    pyexcel.save_as(records=result, dest_file_name="E:\\Dec.xlsx")
