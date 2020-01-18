@@ -1,7 +1,7 @@
 import os
 
 # path = 'D:/UStorage/projects/kylo_81384608_763/'
-path = 'D:/UStorage/projects/'
+path = 'D:/javaProjectsFromGithub/2017/Aug'
 count = 0
 for fpathe, dirs, fs in os.walk(path):
     print(fpathe)

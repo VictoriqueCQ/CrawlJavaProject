@@ -5,30 +5,18 @@ import pyexcel
 github_url = dict()
 URL_List = []
 
-URL = "https://api.github.com/search/repositories?q=language:java+created:2017-12-01..2017-12-31+stars:>20&per_page=100&sort=stars&order=desc"
+URL = "https://api.github.com/search/repositories?q=language:java+created:2016-04-01..2016-04-30+stars:>20&per_page=100&sort=stars&order=desc"
 URL_List.append(URL)
 
 
 def clone(URL, id, stars):
     command = "git clone " + URL
     project_name = URL.split("/")[-1]
-    command += " D://javaProjectsFromGithub//2017//Dec//" + project_name + "_" + str(id) + "_" + str(stars)
+    command += " E://javaProjectsFromGithub//2016//Apr//" + project_name + "_" + str(id) + "_" + str(stars)
     os.system(command)
 
 
 result = []
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 def crawl(URL):
@@ -63,4 +51,4 @@ def crawl(URL):
 
 for i in URL_List:
     crawl(i)
-    pyexcel.save_as(records=result, dest_file_name="D:\\2017_Dec.xlsx")
+    pyexcel.save_as(records=result, dest_file_name="D:\\2016_Apr.xlsx")
