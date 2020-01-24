@@ -43,7 +43,7 @@ class Project:
 
 
 # 从磁盘中获取实际爬下来的项目信息
-path = 'D:/javaProjectsFromGithub/2017/Aug'
+path = 'G:/javaProjectsFromGithub/2017/Aug'
 repository_list = os.listdir(path)
 for repository in repository_list:
     if os.path.isfile(os.path.join(path, repository)):
@@ -144,12 +144,12 @@ for repo in new_first_filter_repo_list:
                 file_path = os.path.join(fpathe, f)
                 project_file_path_list.append(file_path)
         for project_file_path in project_file_path_list:
-            if "\\test" in project_file_path and "src\\junit" not in file_path:
+            if "\\test" in project_file_path and "src\\junit" not in project_file_path:
                 # print(file_path)
                 # print(repo_path)
                 # print("=======================")
                 project.note = 1
-            elif "\\test" not in file_path and "src\\junit" in file_path:
+            elif "\\test" not in project_file_path and "src\\junit" in project_file_path:
                 project.note = 2
         if project.note == 1:
             second_filter_repo_set.add(repo)
@@ -170,3 +170,4 @@ for project in second_filter_project_list:
     second_filter_result_dict['note'] = project.note
     second_filter_result.append(second_filter_result_dict)
 pyexcel.save_as(records=second_filter_result, dest_file_name="D:\\2017_Aug_second_filter.xlsx")
+
